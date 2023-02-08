@@ -9,7 +9,7 @@ namespace Cart_Service.Services
         {
             public UserResponse GetUserById(int userId)
             {
-                var channel = GrpcChannel.ForAddress("https://user-microservice.azurewebsites.net");
+                var channel = GrpcChannel.ForAddress("https://users-microservice.azurewebsites.net");
                 var client = new User.UserClient(channel);
                 var request = new UserRequest { Id = userId };
                 var response = client.GetUserById(request);
