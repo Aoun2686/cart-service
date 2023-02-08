@@ -9,11 +9,12 @@ namespace Cart_Service.Services
         {
             public async Task<UserResponse> GetUserById(int userId)
             {
-                var channel = GrpcChannel.ForAddress("https://user-microservice.azurewebsites.net:50051");
+                var channel = GrpcChannel.ForAddress("https://user-microservice.azurewebsites.net");
                 var client = new User.UserClient(channel);
                 var request = new UserRequest { Id = userId };
-                var response = await client.GetUserByIdAsync(request);
-                return response;
+                var response = client.GetUserById(request);
+                channel.ShutdownAsync().Wait();
+            return response;
             }
         }
     }
