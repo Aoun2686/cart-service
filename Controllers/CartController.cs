@@ -11,7 +11,7 @@ namespace Cart_Service.Controllers
 
         // GET api/<CartController>/5
         [HttpGet("{id}")]
-        public Task<UserResponse> GetUserById(int id)
+        public UserResponse GetUserById(int id)
         {
             var cartService = new CartService();
             var user = cartService.GetUserById(id);

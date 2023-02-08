@@ -7,7 +7,7 @@ namespace Cart_Service.Services
 {
       public class CartService
         {
-            public Task<UserResponse> GetUserById(int userId)
+            public UserResponse GetUserById(int userId)
             {
                 var channel = GrpcChannel.ForAddress("https://user-microservice.azurewebsites.net");
                 var client = new User.UserClient(channel);
