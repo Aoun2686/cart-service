@@ -13,7 +13,6 @@ namespace Cart_Service.Services
                 var client = new User.UserClient(channel);
                 var request = new UserRequest { Id = userId };
                 var response = await client.GetUserByIdAsync(request);
-                channel.ShutdownAsync().Wait();
                 return response;
             }
         }
